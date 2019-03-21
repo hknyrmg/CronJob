@@ -1,0 +1,42 @@
+﻿
+@model ebay.Root
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+<table class="table  table-striped table-hover table-bordered table-responsive-lg">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Brand</th>
+            <th scope="col">Memory</th>
+            <th scope="col">Hard Drive</th>
+            <th scope="col">Cpu</th>
+            <th scope="col">Seller</th>
+            <th scope="col">Seller Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in @Model.Listing.OrderBy(i => i.Seller_info.Seller_rating))
+        {
+
+
+        <tr>
+            <td>@item.Item_info.Brand</td>
+            <td>@item.Item_info.Memory</td>
+            <td>@item.Item_info.Hard_drive</td>
+            <td>
+                @item.Item_info.Cpu
+            </td>
+            <td>@item.Seller_info.Seller_name</td>
+            <td>
+                @item.Seller_info.Seller_rating
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>

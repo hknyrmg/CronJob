@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Demo>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<meta http-equiv="refresh" content="3" ; url="http://localhost/Home/n">
+
+<b style="color:brown">itemCount => </b> <b>@Model.Count().ToString()</b>
+@*@foreach (Demo item in Model)
+    {
+        <table>
+            <tr>
+
+                <td>
+                    @item.DemoId
+                </td>
+                <td>
+                    @item.DemoName
+                </td>
+
+                <td>
+                    @item.CreatedTime
+                </td>
+            </tr>
+        </table>
+    }*@
+@foreach (Demo item in Model)
+{
+    <p style="color:blueviolet">   @item.DemoName  <->  @item.CreatedTime </p>
+
+
+    <p>
+        "There tere there"
+    </p>
+    <div>
+        <a asp-action="Detail" asp-controller="Home" asp-route-id="@item.DemoId">Detail</a>
+
+    </div>
+}
