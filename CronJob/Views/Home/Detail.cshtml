@@ -1,26 +1,26 @@
-﻿@model Demo
+﻿@*@model Demo*@
 @{
     ViewData["Title"] = "Detail";
 }
 
 
-@if (Model == null)
+@*@if (Model == null)
 {
     <div> <label>Not Found Exception </label> </div>
 }
 else
 {
 
-    <h3>Id:   @Model.DemoId </h3>
+    <h3>Id:   @Model.Id </h3>
     <h3>
         Name:
         @Model.DemoName
     </h3>
     <h3>
         Created time:
-        @Model.CreatedTime
+        @Model.CreatedDate
     </h3>
-}
+}*@
 
 
 

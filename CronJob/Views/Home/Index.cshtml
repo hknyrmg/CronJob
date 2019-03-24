@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Demo>
+﻿@model IEnumerable<CronJob.Data.Entities.Demo>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -24,16 +24,19 @@
             </tr>
         </table>
     }*@
-@foreach (Demo item in Model)
+@foreach (var item in Model)
 {
-    <p style="color:blueviolet">   @item.DemoName  <->  @item.CreatedTime </p>
+    <p style="color:blueviolet">   @item.DemoName  <->  @item.CreatedDate </p>
 
 
     <p>
         "There tere there"
     </p>
     <div>
-        <a asp-action="Detail" asp-controller="Home" asp-route-id="@item.DemoId">Detail</a>
-
+        <a asp-action="Detail" asp-controller="Home" asp-route-id="@item.Id">Detail</a>
+        @Html.ActionLink("Delete","Delete", new { id = item.Id }, new
+               {
+                   onclick = "return confirm('Are sure wants to delete?');"
+               })
     </div>
 }

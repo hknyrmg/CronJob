@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronJob", "CronJob\CronJob.csproj", "{046E8A7C-4B04-4376-B5C8-F7123B03C692}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CronJob", "CronJob\CronJob.csproj", "{046E8A7C-4B04-4376-B5C8-F7123B03C692}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronJob.Common", "CronJob.Common\CronJob.Common.csproj", "{384C75B2-D9DB-48E4-85D6-05992BAD26F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronJob.Data", "CronJob.Data\CronJob.Data.csproj", "{C51E7077-EDEE-47A6-8341-3138560DB88A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronJob.Dto", "CronJob.Dto\CronJob.Dto.csproj", "{9197692D-C685-4AAE-9F5F-17B2376A833E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{046E8A7C-4B04-4376-B5C8-F7123B03C692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{046E8A7C-4B04-4376-B5C8-F7123B03C692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{046E8A7C-4B04-4376-B5C8-F7123B03C692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{384C75B2-D9DB-48E4-85D6-05992BAD26F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384C75B2-D9DB-48E4-85D6-05992BAD26F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384C75B2-D9DB-48E4-85D6-05992BAD26F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384C75B2-D9DB-48E4-85D6-05992BAD26F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C51E7077-EDEE-47A6-8341-3138560DB88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51E7077-EDEE-47A6-8341-3138560DB88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51E7077-EDEE-47A6-8341-3138560DB88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C51E7077-EDEE-47A6-8341-3138560DB88A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9197692D-C685-4AAE-9F5F-17B2376A833E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9197692D-C685-4AAE-9F5F-17B2376A833E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9197692D-C685-4AAE-9F5F-17B2376A833E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9197692D-C685-4AAE-9F5F-17B2376A833E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

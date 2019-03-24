@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace CronJob.Models
 {
-    public class Demo
+    public class Demo:Entitybase
     {
-        [Key]
-        public int DemoId { get; set; }
         public string DemoName { get; set; }
-        public DateTime CreatedTime { get; set; } = DateTime.Now;
     }
 }

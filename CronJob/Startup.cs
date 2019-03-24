@@ -14,6 +14,7 @@ using Serilog.Sinks.Elasticsearch;
 using Microsoft.Extensions.Logging;
 using CronJob.Data;
 using Microsoft.EntityFrameworkCore;
+using CronJob.Common.UnitofWork;
 
 namespace CronJob
 {
@@ -44,8 +45,34 @@ namespace CronJob
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            #region ApplicationDbContextSection
 
-            services.AddDbContext<CronDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<CronJob.Data.CronDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<DbContext, CronJob.Data.CronDbContext>();
+
+            #endregion ApplicationDbContextSection
+            services.AddScoped<IUnitofWork, UnitofWork>();
+            //#region AutoMapperSection
+
+            ////Auto mapper'ı ekliyoruz
+            //services.AddAutoMapper();
+
+            //#endregion AutoMapperSection
+            #region CorsSection
+
+            //Cors ayarları
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
+            #endregion CorsSection
+            //services.AddDbContext<CronDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCronQuery(Configuration.GetSection("CronQuery"));
             services.AddTransient<Thirdjob>();
@@ -67,6 +94,11 @@ namespace CronJob
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            #region CorsSection
+
+            app.UseCors("CorsPolicy");
+
+            #endregion CorsSection
             loggerFactory.AddSerilog();
 
             app.UseHttpsRedirection();
@@ -77,7 +109,7 @@ namespace CronJob
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Default}/{action=Index}/{id?}");
             });
             app.UseCronQuery()
                 .Enqueue<Thirdjob>()
